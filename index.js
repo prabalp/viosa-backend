@@ -12,11 +12,14 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const authRouter = require("./routes/auth");
+
 router.use(express.static(__dirname + "/public/"));
 
 //env var
 
 //routes
+app.use("/auth", authRouter);
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
