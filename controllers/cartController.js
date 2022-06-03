@@ -1,7 +1,7 @@
 const Cart = require("../models/cart");
 const { successmessage, errormessage } = require("../middlewares/util");
 
-modules.exports.GetCart = async (req, res) => {
+module.exports.GetCart = async (req, res) => {
   try {
     const cart = await Cart.findById(req.params.id);
     if (!cart) {

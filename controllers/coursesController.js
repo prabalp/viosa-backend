@@ -1,7 +1,7 @@
 const Course = require("../models/courses");
 const { successmessage, errormessage } = require("../middlewares/util");
 
-modules.exports.GetCourses = async (req, res) => {
+module.exports.GetCourses = async (req, res) => {
   try {
     const courses = await Course.find({});
     if (!courses) {
@@ -13,7 +13,7 @@ modules.exports.GetCourses = async (req, res) => {
   }
 };
 
-modules.exports.GetCoursebyId = async (req, res) => {
+module.exports.GetCoursebyId = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
     if (!course) {
