@@ -1,4 +1,5 @@
-const User = 0; //require("../models/vendor");//
+const User = require("../models/user");
+const Cart = require("../models/cart");
 const {
   successmessage,
   generateToken,
@@ -10,7 +11,8 @@ const {
 module.exports.UserSignup = async (req, res) => {
   try {
     const { email, password, name, number } = req.body;
-    const user = await User.findOne({ email: email });
+    console.log(req.body);
+    const user = await User.find({ email: email });
 
     if (user) {
       return res
@@ -27,7 +29,9 @@ module.exports.UserSignup = async (req, res) => {
       password: newPassword,
     });
 
-    const token = generateToken(JSON.stringify(user._id));
+    const token = generateToken(JSON.stringify(createUser._id));
+    const userCart = await Cart.create({ user: createUser._id });
+    console.log(userCart);
 
     return res
       .status(200)
@@ -38,6 +42,7 @@ module.exports.UserSignup = async (req, res) => {
 };
 
 module.exports.UserLogin = async (req, res) => {
+  console.log(req.body);
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email }).select("password");
