@@ -7,7 +7,11 @@ const cors = require("cors");
 const { db_connect } = require("./db_connection");
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "http://localhost:3001"],
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://viosa-admin.netlify.app/",
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "authorization"],
   credentials: true,
