@@ -28,7 +28,11 @@ module.exports.GetCoursebyId = async (req, res) => {
 module.exports.AddCourse = async (req, res) => {
   try {
     const coursedata = req.body;
-    coursedata["image"] = req.file.path;
+    // coursedata["image"] = req.files.image[0].path;
+    // console.log(req.files.vid[0].path);
+    coursedata["thumnailUrl"] = req.files.thumnail[0].path;
+    coursedata["vidUrl"] = req.files.vid[0].path;
+    // console.log(req.files.image[0]);
     const course = await Course.create(coursedata);
     if (!course) {
       return res.status(400).json(errormessage("No course found"));

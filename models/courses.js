@@ -44,6 +44,9 @@ const CourseSchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  prePrice: {
+    type: Number,
+  },
 });
 
 module.exports = mongoose.model("Course", CourseSchema);

@@ -9,8 +9,14 @@ const storage = multer.diskStorage({
   },
 });
 
-const uploadImg = multer({ storage: storage }).single("image");
+// const uploadImg = multer({ storage: storage }).single("image");
 
+const uploadImg = multer({ storage: storage }).fields([
+  { name: "thumnail", maxCount: 1 },
+  { name: "vid", maxCount: 1 },
+]);
+
+// const uploadImg2 = multer({ storage: storage }).single("image2");
 module.exports = {
   uploadImg,
 };
