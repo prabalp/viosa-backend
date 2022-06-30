@@ -17,7 +17,8 @@ const profileRouter = require("./routes/profile");
 const courseRouter = require("./routes/course");
 const cartRouter = require("./routes/cart");
 
-router.use(express.static(__dirname + "/public/"));
+// router.use(express.static(__dirname + "/public/"));
+app.use("/uploads", express.static("./uploads"));
 
 //env var
 const URL = process.env.MONGODB_URI;

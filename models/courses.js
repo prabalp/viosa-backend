@@ -41,6 +41,9 @@ const CourseSchema = new mongoose.Schema({
   thumnailUrl: {
     type: String,
   },
+  image: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Course", CourseSchema);
