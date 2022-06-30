@@ -34,6 +34,7 @@ app.use("/uploads", express.static("./uploads"));
 
 //env var
 const URL = process.env.MONGODB_URI;
+const port = process.env.PORT || 3000;
 
 //routes
 app.use("/auth", authRouter);
@@ -45,7 +46,7 @@ app.get("/", (req, res) => {
   res.send("VIOSA API");
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Listening on port 3000");
   db_connect(URL);
 });
