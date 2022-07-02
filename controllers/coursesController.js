@@ -29,7 +29,7 @@ module.exports.AddCourse = async (req, res) => {
   try {
     const coursedata = req.body;
     // coursedata["image"] = req.files.image[0].path;
-    // console.log(req.files.vid[0].path);
+    // console.log(req.files);
     coursedata["thumnailUrl"] = req.files.thumnail[0].path;
     coursedata["vidUrl"] = req.files.vid[0].path;
     // console.log(req.files.image[0]);

@@ -43,6 +43,7 @@ app.use("/course", courseRouter);
 app.use("/cart", cartRouter);
 
 app.get("/", (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   res.send("VIOSA API");
 });
 
